@@ -194,7 +194,7 @@ truth('f1-05','f1',1,'Eine eigenhändige Unterschrift ist bei jeder Textform vor
 open('f1-b1','f1',3,'BONUS: Ein Onlinekauf wird per E-Mail bestätigt. Erklären Sie, warum die elektronische Kommunikation grundsätzlich kein Wirksamkeitshindernis darstellt.','Ein Kauf beweglicher Sachen ist grundsätzlich formfrei. Vertragliche Willenserklärungen können elektronisch abgegeben werden. Besondere gesetzliche Formvorschriften oder individuell wirksame Vereinbarungen müssen ggf. gesondert geprüft werden.',{bonus:true});
 
 group('uf-03','f2',2,'Ordnen Sie die Rechtsgeschäfte der passenden Form zu.',['Formfrei','Schriftform / eigenhändig','Öffentliche Beglaubigung','Notarielle Beurkundung','Textform'],[
- ['Kündigung eines Arbeitsverhältnisses',1],['Eintragung einer GmbH ins Handelsregister (Anmeldung)',2],['Kaufvertrag über ein Grundstück',3],['Ein eigenhändiges Testament',1],['Mieterhöhung wegen Modernisierung (§ 559b BGB)',4],['Kauf eines gewöhnlichen Motorrads',0],['Ausschlagung einer Erbschaft (öffentlich beglaubigte Erklärung oder zur Niederschrift des Nachlassgerichts)',2]],'Bei Erbausschlagung bestehen zwei gesetzliche Wege: Niederschrift des Nachlassgerichts oder öffentlich beglaubigte Form (§ 1945 BGB).',src('1/A3b; 3/A5; 5/A3'));
+ ['Kündigung eines Arbeitsverhältnisses',1],['Eintragung einer GmbH ins Handelsregister (Anmeldung)',2],['Kaufvertrag über ein Grundstück',3],['Ein eigenhändiges Testament',1],['Mieterhöhung wegen Modernisierung (§ 559b BGB)',4],['Kauf eines gewöhnlichen Motorrads',0],['Ausschlagung einer Erbschaft (öffentlich beglaubigte Erklärung oder zur Niederschrift des Nachlassgerichts)',2],['Nachvertragliches Wettbewerbsverbot eines Arbeitnehmers (Grundfall)',1],['Unterschriftsbeglaubigte Eintragungsbewilligung für eine Grundschuld',2]],'Bei Erbausschlagung bestehen zwei gesetzliche Wege: Niederschrift des Nachlassgerichts oder öffentlich beglaubigte Form (§ 1945 BGB).',src('1/A3b; 3/A5; 5/A3; 6/A3b,c'));
 s('uf-04','f2',2,'Welche Form gilt für die Anmeldung einer GmbH zum Handelsregister?',['Formfrei','Öffentliche Beglaubigung','Mündlich'],1,'Die Handelsregisteranmeldung wird öffentlich beglaubigt.',src('3/A5b'));
 s('uf-05','f2',2,'Welche Form verlangt der Kauf eines Grundstücks für 150.000 €?',['Formfrei','Einfache Schriftform','Notarielle Beurkundung'],2,'§ 311b Abs. 1 BGB fordert notarielle Beurkundung.',src('3/A5c'));
 s('uf-06','f2',2,'Wie ist die Form bei einem auf vier Jahre angelegten Wohnraummietvertrag einzuordnen?',['Schriftform für die feste Laufzeit, sonst grundsätzlich unbefristet','Notarielle Beurkundung','Immer formfrei, auch für die feste Laufzeit'],0,'§ 550 BGB: Ohne Schriftform gilt der Vertrag grundsätzlich als auf unbestimmte Zeit geschlossen. Zusätzlich sind Befristungsregeln des § 575 BGB zu prüfen.',src('3/A5e'));
@@ -238,6 +238,17 @@ truth('uf-19','f2',1,'Bei der öffentlichen Beglaubigung wird vor allem die Echt
 truth('uf-20','f2',1,'Bei der notariellen Beurkundung hält der Notar den rechtlich erheblichen Erklärungsinhalt fest.',true,'Notarielle Beurkundung beinhaltet eine Niederschrift über den Inhalt.',src('6/A7c'));
 
 
+// Sechs Originalfälle aus der Übung zum Vertragsschluss werden zu einer einzigen
+// anwendungsorientierten Sortieraufgabe zusammengeführt, statt sie einzeln abzufragen.
+group('ur-fallpaket','r3',2,'Sechs Alltagssituationen: Ordnen Sie ein, ob ein Vertrag zustande kommt oder ob weitere Umstände geklärt werden müssen.',['Vertrag kommt typischerweise zustande','Kein Vertrag durch das beschriebene Verhalten','Ohne weitere Angaben nicht sicher entscheidbar'],[
+ ['Ein Landwirt bejaht das konkrete Anhängerangebot durch Nicken und holt den Anhänger ab.',0],
+ ['Eine Kundin wirft Geld in einen Kaffeeautomaten und erhält den Kaffee.',0],
+ ['Ein Stammkunde lagert unbestellt gelieferte Ware ein und meldet sich nicht.',1],
+ ['Ein Jugendlicher hat eine Kamera eine Woche auf Probe, äußert seine Ablehnung aber erst nach zwei Wochen. Die genauen Bedingungen sind unbekannt.',2],
+ ['Kollegen verabreden mündlich eine regelmäßige Lotto-Spielgemeinschaft; ob rechtliche Bindung gewollt ist, bleibt offen.',2],
+ ['Ein Verkäufer bietet eine Kiste Mangos für 40 € an. Der Kunde möchte nur die Hälfte für 22 €.',1]
+ ],'Nicken und Automatenkauf können als Annahme durch schlüssiges Verhalten wirken. Das bloße Einlagern unbestellter Ware genügt regelmäßig nicht. Beim Kauf auf Probe hängen die Rechtsfolgen von den Bedingungen und Fristen ab; auch eine Spielgemeinschaft ist kontextabhängig. Die Mango-Antwort weicht in Menge und Preis ab und ist ein neuer Antrag (§ 150 Abs. 2 BGB).',src('6/A6a–f'));
+
 // Weitere kurze Abrufaufgaben, Transferfälle und vollständige Fallbegründungen.
 fill('w1-extra01','w1',1,'Ergänzen Sie den Fachbegriff: Eine auf Rechtsfolgen gerichtete Willensäußerung heißt ...','Willenserklärung','Die Willenserklärung ist die zentrale Einheit rechtsgeschäftlichen Handelns.');
 fill('w2-extra01','w2',1,'Wie heißt eine Willenserklärung, die sich durch schlüssiges Verhalten zeigt?','konkludent','Konkludent bedeutet schlüssig, also aus dem Verhalten erschließbar.');
@@ -271,9 +282,74 @@ const test = [
 ];
 for(const [id,module,afb,type,prompt,answer,extra] of test) add(id,module,afb,type,prompt,answer,{...extra,test:true});
 export const allQuestions=questions.map(q=>({ ...q, answer:q.type==='single' && typeof q.answer==='string' ? Number(q.answer) : q.answer }));
-export const regularQuestions=allQuestions.filter(q=>!q.test);
+// Kompaktfassung: redundante Definitionsfragen entfallen. Stabile IDs erlauben die
+// Weiterverwendung bereits gespeicherter Ergebnisse dieser ausgewählten Aufgaben.
+const selectedExerciseIds=new Set([
+ 'uw-01',
+ 'w1-02',
+ 'w1-03',
+ 'w1-extra02',
+ 'w1-04',
+ 'w2-01',
+ 'uw-02',
+ 'w2-04',
+ 'w2-extra02',
+ 'w2-05',
+ 'w3-01',
+ 'uw-03',
+ 'uw-05',
+ 'uw-06',
+ 'uw-04',
+ 'ur-03',
+ 'ur-04',
+ 'sr-01',
+ 'ur-06',
+ 'ur-05',
+ 'r1-03',
+ 'ur-08',
+ 'r2-02',
+ 'ur-07',
+ 'r2-03',
+ 'r2-04',
+ 'r2-05',
+ 'r3-00',
+ 'r3-01',
+ 'ur-14',
+ 'ur-fallpaket',
+ 'r3-02',
+ 'r3-03',
+ 'r3-b1',
+ 'r3-04',
+ 'sr-archiv',
+ 'uf-01',
+ 'ur-21',
+ 'uf-02',
+ 'f1-03',
+ 'f1-04',
+ 'f2-01',
+ 'f2-02',
+ 'uf-18',
+ 'uf-03',
+ 'uf-08',
+ 'uf-06',
+ 'uf-15',
+ 'f2-b1',
+ 'f3-00',
+ 'f3-01',
+ 'sf-01',
+ 'sf-02',
+ 'sf-03',
+ 'sf-05',
+ 'f3-02',
+ 'sf-04',
+ 'sf-06',
+ 'uf-09',
+ 'uf-10',
+ 'uf-11'
+]);
+export const regularQuestions=allQuestions.filter(q=>!q.test && selectedExerciseIds.has(q.id));
 export const testQuestions=allQuestions.filter(q=>q.test);
-export const questionById=Object.fromEntries(allQuestions.map(q=>[q.id,q]));
+export const questionById=Object.fromEntries([...regularQuestions,...testQuestions].map(q=>[q.id,q]));
 export const xpFor = q => q.bonus ? 65 : q.test ? 45 : ({1:20,2:35,3:50}[q.afb]||20);
 export const defaultProgress = () => ({answers:{},spent:0,earned:0,owned:['starter','none','mint'],equipped:{outfit:'starter',pet:'none',back:'mint'},checklist:{},events:[],created:Date.now()});
 export function normalize(str) {return String(str??'').trim().toLocaleLowerCase('de-DE').replace(/[\s\u00a0]+/g,' ').replace(/[„“"'’.,!?;:()]/g,'').replace(/ß/g,'ss');}

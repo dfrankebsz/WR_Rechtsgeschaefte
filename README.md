@@ -18,7 +18,8 @@ Ein browserbasierter, mobil nutzbarer Lernkurs mit **Willenserklärungen**, **Ar
 
 ## Aufbau und Bedienung
 
-- 3 Kapitel mit 9 Unterkapiteln, **124 regulären bzw. Bonusübungen** und **12 Fragen im Abschlusstest**, alle drei Anforderungsbereiche in jedem Unterkapitel.
+- 3 Kapitel mit 9 Unterkapiteln, **61 regulären bzw. Bonusübungen** und **12 Fragen im Abschlusstest**, alle drei Anforderungsbereiche in jedem Unterkapitel. Definitionslastige Teile haben jeweils nur fünf Übungen; anspruchsvollere Fallkapitel mehr. Ähnliche Originalfälle sind in Sammelzuordnungen gebündelt.
+- **Alle Übungs- und Testaufgaben erscheinen untereinander**, ohne eine einzelne Aufgabe anklicken zu müssen. Jede Aufgabe kann unmittelbar geprüft werden.
 - Zahlreiche Fallbeispiele und originale Aufgabenstellungen in didaktisch geeigneter, ggf. berichtigter Fassung. Aufgabentypen: Single Choice, Multiple Choice, Richtig/Falsch, Zuordnung mit Drag-and-drop oder Touch-Auswahl, Reihenfolge, Lückentext und selbstbeurteilte Freitextantworten.
 - Die Lernenden müssen das Aufrufen der **Musterlösung explizit bestätigen**. Bei längeren Freitexten müssen sie die Musterlösung mit ihrer Antwort vergleichen und können die Aufgabe danach selbst als richtig markieren oder überarbeiten.
 - Interaktive Schaubilder, z. B. die Preisregler-Demonstration zu **Antrag und Annahme** und ein Entscheidungsbaum zu Formmängeln. Alle Erklärungen benutzen die **Sie-Form**.
@@ -48,7 +49,7 @@ Nach Installation von Node.js 22:
 
 ```bash
 npm install
-npm run check
+npm run check:all
 npm run build
 ```
 
@@ -60,9 +61,9 @@ npm run dev
 
 Der reine lokale Vite-Server ermöglicht den **Gastmodus**. Serverkonten benötigen eine Netlify-Function-Umgebung mit gültigem Blobs-Kontext, zum Beispiel **Netlify Dev** oder die deployte Website.
 
-Die beigefügte Prüfung `npm run check` validiert unter anderem Aufgaben-IDs, AFB-Zuordnung, Vorhandensein von Musterlösungen und die Richtigkeit automatisch auswertbarer Antworten. Die **Serverlogik** wurde mit einer lokalen Test-Doubles-Datenbank auf Registrierung, Login, Klassenzuordnung, Fortschritt, XP, Passwort-Reset und Konto-/Datenlöschung überprüft.
+Die beigefügte Prüfung `npm run check:all` validiert unter anderem Aufgaben-IDs, AFB-Zuordnung, Vorhandensein von Musterlösungen und die Richtigkeit automatisch auswertbarer Antworten. Die **Serverlogik** wurde mit einer lokalen Test-Doubles-Datenbank auf Registrierung, Login, Klassenzuordnung, Fortschritt, XP, Passwort-Reset und Konto-/Datenlöschung überprüft.
 
-**Einschränkung der vorliegenden ZIP-Erstellung:** Ein vollständiger `npm install`/Vite-Produktions-Build und ein Live-Netlify-Deployment waren in der Erstellungsumgebung mangels Paketdownload/externem Deployment nicht ausführbar. Prüfen Sie deshalb den ersten Netlify-Build und den realen Kontenworkflow anhand der dortigen Deploy- und Function-Logs. Die ZIP enthält den vollständigen Quellcode, nicht vorab gebaute `dist`-Dateien. Ein grüner Build auf Netlify ist noch keine Datenschutzfreigabe.
+**Einschränkung der vorliegenden ZIP-Erstellung:** Ein vollständiger `npm install`/Vite-Produktions-Build und ein Live-Netlify-Deployment waren in der Erstellungsumgebung mangels Paketdownload/externem Deployment nicht ausführbar. Die Aufgabenbank und die gestapelte Übungsansicht wurden jedoch mit den enthaltenen Node-Testskripten geprüft. Prüfen Sie deshalb den ersten Netlify-Build und den realen Kontenworkflow anhand der dortigen Deploy- und Function-Logs. Die ZIP enthält den vollständigen Quellcode, nicht vorab gebaute `dist`-Dateien. Ein grüner Build auf Netlify ist noch keine Datenschutzfreigabe.
 
 ## Inhaltliche Quellen
 
@@ -75,3 +76,9 @@ Die Ausgangs-PDFs selbst sind aus urheber- und datensparsamen Gründen nicht Tei
 ## KI-Nachweis
 
 Der gesetzte Hinweis im Footer nennt **05.11.2026** und **ChatGPT (GPT-6)** und weist korrekt darauf hin, dass die **abschließende fachliche und redaktionelle Kontrolle durch die Lehrkraft vor dem Einsatz** noch stattfinden muss. Bitte passen Sie diesen Text nach Ihrer tatsächlichen Schlusskontrolle gegebenenfalls an.
+
+## Aktualisierung: kompakte Lernfassung
+
+Die ursprüngliche Lernfassung hatte 124 Übungen. Diese überarbeitete Fassung hat **61 Übungen** sowie die unveränderten 12 Fragen des Abschlusstests. Fünf Übungen je definitorischem Einstiegsabschnitt, mehr Fallaufgaben bei Vertragsabschluss und Formmängeln. Inhaltliche Dopplungen wurden gestrichen oder zusammengelegt; eine Auswahl der ursprünglichen PDF-Aufgaben ist in Sammelzuordnungen integriert. Die Datei `KORREKTUREN_UND_ABDECKUNG.md` dokumentiert die fachliche Korrektur der Originalmaterialien.
+
+In jedem Unterkapitel (und auch im Abschlusstest) stehen die Aufgaben **vollständig direkt untereinander**; es gibt keine separate nummerierte Aufgaben-Navigation. Die Eingaben werden weiterhin pro Aufgabe geprüft und gespeichert. Beim Prüfen und Öffnen von Musterlösungen bleibt die jeweilige Aufgabe an ihrer Bildschirmposition.

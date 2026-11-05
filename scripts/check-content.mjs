@@ -2,6 +2,7 @@ import {chapters,modules,regularQuestions,testQuestions,questionById,judge,defau
 import assert from 'node:assert/strict';
 const all=[...regularQuestions,...testQuestions];
 assert.equal(new Set(all.map(q=>q.id)).size,all.length,'Doppelte IDs');
+assert.equal(regularQuestions.length,61,'Falsche Aufgabenzahl');
 for(const q of all){
  assert.ok(modules.find(m=>m.id===q.module),`Unbekanntes Modul ${q.id}`);
  assert.ok([1,2,3].includes(q.afb),`Ungültiger AFB ${q.id}`);
@@ -21,7 +22,7 @@ for(const q of all){
 }
 for(const m of modules){const qs=regularQuestions.filter(q=>q.module===m.id);for(const afb of [1,2,3])assert.ok(qs.some(q=>q.afb===afb),`AFB ${afb} fehlt in ${m.id}`)}
 const counts=Object.fromEntries([1,2,3].map(a=>[a,regularQuestions.filter(q=>q.afb===a).length]));
-assert.deepEqual(counts,{'1':31,'2':62,'3':31},'Anforderungsbereiche müssen 25 / 50 / 25 betragen');
+assert.deepEqual(counts,{'1':15,'2':30,'3':16},'Verteilung der gekürzten Aufgabenbank');
 console.log(`Kurs geprüft: ${chapters.length} Kapitel, ${modules.length} Unterkapitel, ${regularQuestions.length} Übungen, ${testQuestions.length} Testaufgaben.`);
 console.log('AFB:',counts,'Anteile',Object.fromEntries([1,2,3].map(x=>[x,(100*counts[x]/regularQuestions.length).toFixed(1)+'%'])));
 console.log('Aufgabentypen:',[...new Set(all.map(q=>q.type))].join(', '));

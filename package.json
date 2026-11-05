@@ -1,9 +1,22 @@
 {
-  "name":"rechtsklar-lernwelt",
-  "version":"1.0.0",
-  "private":true,
-  "type":"module",
-  "scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","preview":"vite preview --host 0.0.0.0","check":"node scripts/check-content.mjs"},
-  "dependencies":{"@netlify/blobs":"^11.1.7","jspdf":"^4.2.1","lucide":"^0.468.0"},
-  "devDependencies":{"vite":"^6.4.5"}
+  "name": "rechtsklar-lernwelt",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "check": "node scripts/check-content.mjs",
+    "check:ui": "node scripts/check-ui.mjs",
+    "check:all": "npm run check && npm run check:ui"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.7",
+    "jspdf": "^4.2.1",
+    "lucide": "^0.468.0"
+  },
+  "devDependencies": {
+    "vite": "^6.4.5"
+  }
 }
